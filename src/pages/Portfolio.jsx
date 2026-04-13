@@ -86,7 +86,7 @@ const skills = [
     category: 'AI',
     icon: <Target size={20} className="text-slate-300" />,
     desc: 'Exploring intelligent systems, deep learning, AI orchestration. Passionate about combining software engineering with AI to build impactful solutions.',
-    items: ['Python','Machine Learning', 'Deep Learning', 'NLP' ]
+    items: ['Python', 'Machine Learning', 'Deep Learning', 'NLP']
   },
   {
     category: 'ENGINEERING & PROBLEM SOLVING',
@@ -140,11 +140,10 @@ function FloatingNav({ activeSection }) {
         <button
           key={id}
           onClick={() => scrollTo(id)}
-          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
-            activeSection === id
+          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${activeSection === id
               ? 'bg-white/15 text-white'
               : 'text-slate-400 hover:text-white hover:bg-white/8'
-          }`}
+            }`}
         >
           {label}
         </button>
@@ -169,8 +168,9 @@ export default function Portfolio() {
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    
-    formData.append("access_key", "995e1169-17f3-43d0-a978-43882ff5a6d1");
+
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+
     formData.append("subject", "New Contact from Portfolio!");
 
     const name = formData.get('name');
@@ -185,7 +185,7 @@ export default function Portfolio() {
         body: formData
       });
       const data = await res.json();
-      
+
       if (data.success) {
         setFormStatus('success');
         e.target.reset();
@@ -425,9 +425,8 @@ export default function Portfolio() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={i}
-              className={`relative flex mb-12 ${
-                exp.side === 'left' ? 'justify-start pr-[52%]' : 'justify-end pl-[52%]'
-              }`}
+              className={`relative flex mb-12 ${exp.side === 'left' ? 'justify-start pr-[52%]' : 'justify-end pl-[52%]'
+                }`}
             >
               {/* pulse dot */}
               <div className="absolute left-1/2 top-6 -translate-x-1/2 z-10">
@@ -577,14 +576,13 @@ export default function Portfolio() {
                   disabled={formStatus === 'loading' || formStatus === 'success'}
                   whileHover={{ scale: formStatus === 'idle' ? 1.02 : 1 }}
                   whileTap={{ scale: formStatus === 'idle' ? 0.98 : 1 }}
-                  className={`w-full py-3 rounded-xl text-white font-semibold flex justify-center items-center gap-2 transition shadow-lg ${
-                    formStatus === 'success' ? 'bg-green-500 shadow-green-900/40 cursor-default' : 
-                    formStatus === 'error' ? 'bg-red-500 shadow-red-900/40' : 
-                    'bg-gradient-to-r from-pink-500 to-purple-600 shadow-purple-900/40 hover:opacity-90'
-                  }`}
+                  className={`w-full py-3 rounded-xl text-white font-semibold flex justify-center items-center gap-2 transition shadow-lg ${formStatus === 'success' ? 'bg-green-500 shadow-green-900/40 cursor-default' :
+                      formStatus === 'error' ? 'bg-red-500 shadow-red-900/40' :
+                        'bg-gradient-to-r from-pink-500 to-purple-600 shadow-purple-900/40 hover:opacity-90'
+                    }`}
                 >
                   {formStatus === 'loading' ? (
-                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   ) : formStatus === 'success' ? (
                     'Message Sent!'
                   ) : formStatus === 'error' ? (
