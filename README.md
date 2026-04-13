@@ -1,5 +1,7 @@
 # Ritesh Saini | Portfolio 🚀
 
+**Live Preview:** [https://ritesh16-portfolio.vercel.app/](https://ritesh16-portfolio.vercel.app/)
+
 A modern, highly-interactive developer portfolio built using React, Vite, and Tailwind CSS. The design focuses on glassmorphism aesthetics, fluid WebGL animations, and responsive clean layouts to showcase full-stack projects, experience, and AI capabilities.
 
 ## ✨ Features
